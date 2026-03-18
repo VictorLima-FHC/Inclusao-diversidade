@@ -1,8 +1,8 @@
 @media (min-width: 1024px) {
-  .hero {
-    aspect-ratio: 1440 / 391;
-
-  }
+ .hero {
+  aspect-ratio: 1540 / 475;
+  background-position: center top; 
+}
 
   .hero__title-br { 
     display: none; 

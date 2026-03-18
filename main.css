@@ -146,7 +146,7 @@ img {
   position: relative;
   width: 100%;
   overflow: hidden;
-  aspect-ratio: 389 / 406;
+  aspect-ratio: 389 / 456;
 }
 
 .hero__img {
@@ -232,7 +232,6 @@ background: linear-gradient(
   letter-spacing: 0.019rem;
 }
 
-/* Full-bleed on mobile via negative horizontal margins */
 .section1__highlight {
   background-color: var(--color-brand-primary);
   margin-inline: calc(-1 * var(--spacing-section-x));
