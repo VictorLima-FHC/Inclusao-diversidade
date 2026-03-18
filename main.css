@@ -1,0 +1,489 @@
+/* ─────────────────────────────────────────────────────────
+   Font Faces
+   ───────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "LexiaRegular";
+  src: url("assets/fonts/Lexia-W01-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LexiaSemiBold";
+  src: url("assets/fonts/Lexia-W01-Light.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LexiaBold";
+  src: url("assets/fonts/Lexia-W01-Bold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LexiaXBold";
+  src: url("assets/fonts/Lexia-W01-XBold.ttf") format("truetype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexia-V2";
+  src: url("assets/fonts/Lexia-V2.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Custom Properties
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* Brand colors */
+  --color-brand-primary: #7e2755;
+  --color-brand-secondary: #830050;
+  --color-brand-accent: #bf286e;
+  --color-brand-label: #8f1a62;
+
+  /* Text colors */
+  --color-text-heading: #7e2755;
+  --color-text-body: #1f1f1e;
+  --color-text-muted: #3c4242;
+  --color-text-on-dark: #ffffff;
+
+  /* Surface colors */
+  --color-surface-white: #ffffff;
+  --color-surface-light: #ebebeb;
+  --color-surface-dark: #830050;
+
+  /* Font families */
+  --font-heading: "LexiaBold", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Fluid typography — viewport range: 393px → 1440px */
+  --text-h1: clamp(1.5rem, 0.75rem + 3.06vw, 3.5rem);
+  --leading-h1: 0.95;
+
+  --text-h2: clamp(1.375rem, 1.21rem + 0.67vw, 1.8125rem);
+  --leading-h2: 1.3;
+
+  --text-h3: clamp(1.125rem, 0.96rem + 0.67vw, 1.5625rem);
+  --leading-h3: normal;
+
+  --text-body-lg: clamp(1rem, 0.953rem + 0.191vw, 1.125rem);
+  --leading-body-lg: 1.3;
+
+  --text-body-md: clamp(0.875rem, 0.7rem + 0.19vw, 0.875rem);
+  --leading-body-md: 1.43;
+
+  --text-btn: clamp(0.875rem, 0.8rem + 0.29vw, 1.0625rem);
+  --leading-btn: 1.3;
+
+  /* Spacing */
+  --spacing-section-x: clamp(1.2rem, 2.78vw, 7rem);
+  --spacing-section-y: clamp(2rem, 1.25rem + 3.06vw, 4rem);
+  --spacing-xl: 2.5rem;
+  --spacing-lg: 1.5rem;
+  --spacing-sm: 0.75rem;
+
+  /* Misc */
+  --radius-btn: 0.25rem;
+
+  /* Carousel — overridden to 3 in media.css at ≥1024px */
+  --carousel-visible: 1;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Reset & Base
+   ───────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: balance;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Container utility
+   ───────────────────────────────────────────────────────── */
+.container {
+  max-width: 90rem;
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: var(--spacing-section-x);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Spacing utility (used in multi-paragraph blocks)
+   ───────────────────────────────────────────────────────── */
+.mt-lg { margin-top: var(--spacing-lg); }
+
+/* ─────────────────────────────────────────────────────────
+   Hero
+   ───────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 389 / 406;
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(126, 39, 85, 0.8), transparent);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-block: var(--spacing-section-y);
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  line-height: var(--leading-h1);
+  color: var(--color-text-on-dark);
+  max-width: 55rem;
+  margin-bottom: 1.5625rem;
+}
+
+/* Line break between "Inclusão" and "e Diversidade" on mobile only */
+.hero__title-br  { display: inline; }
+.hero__title-space { display: none; }
+
+/* ─────────────────────────────────────────────────────────
+   Section 1 — Nossa abordagem
+   ───────────────────────────────────────────────────────── */
+#section1 {
+  background-color: var(--color-surface-white);
+  padding-top: var(--spacing-section-y);
+}
+
+.section1__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.section1__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.section1__heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  color: var(--color-text-heading);
+  letter-spacing: 0.019rem;
+}
+
+.section1__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+  color: var(--color-text-muted);
+  letter-spacing: 0.019rem;
+}
+
+/* Full-bleed on mobile via negative horizontal margins */
+.section1__highlight {
+  background-color: var(--color-brand-primary);
+  margin-inline: calc(-1 * var(--spacing-section-x));
+  padding-inline: var(--spacing-section-x);
+  padding-block: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+}
+
+.section1__icon-wrap {
+  flex-shrink: 0;
+}
+
+.section1__icon {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.section1__highlight-text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+  color: var(--color-text-on-dark);
+  letter-spacing: 0.019rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Section 2 — Nossa estratégia
+   ───────────────────────────────────────────────────────── */
+#section2 {
+  background-color: var(--color-surface-light);
+  padding-top: var(--spacing-section-y);
+  padding-bottom: 3rem;
+}
+
+.section2__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.section2__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  color: var(--color-brand-label);
+}
+
+.section2__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+.section2__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section2__icon {
+  width: 8rem;
+  height: 8rem;
+  object-fit: contain;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section2__item-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  line-height: var(--leading-h3);
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section2__item-body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+  color: var(--color-text-body);
+  opacity: 0.8;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Section 3 — Grupos de afinidade (Carousel)
+   ───────────────────────────────────────────────────────── */
+#section3 {
+  background-color: var(--color-surface-white);
+  padding-block: var(--spacing-section-y);
+}
+
+.section3__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.section3__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  color: var(--color-brand-label);
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.carousel__track {
+  display: flex;
+  gap: var(--spacing-lg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel__card {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: calc((100% - (var(--carousel-visible) - 1) * var(--spacing-lg)) / var(--carousel-visible));
+}
+
+.carousel__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 364 / 269;
+  object-fit: cover;
+}
+
+.carousel__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  line-height: var(--leading-h3);
+  color: var(--color-text-heading);
+}
+
+.carousel__card-body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body-md);
+  color: var(--color-text-body);
+}
+
+.carousel__nav {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.carousel__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.carousel__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel__btn:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+.carousel__btn-img {
+  width: 2.625rem;
+  height: 2.625rem;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Section 4 — Relatório de transparência salarial
+   ───────────────────────────────────────────────────────── */
+#section4 {
+  background-color: var(--color-surface-light);
+  padding-block: var(--spacing-section-y);
+}
+
+.section4__card {
+  background-color: var(--color-surface-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+.section4__heading-mobile {
+  display: block; 
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.section4__heading-desktop {
+  display: none; 
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  color: var(--color-text-on-dark);
+}
+
+.section4__img-col {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section4__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 509 / 334;
+  object-fit: cover;
+}
+
+.section4__text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.section4__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+  color: var(--color-text-on-dark);
+}
+
+.section4__bold-closing {
+  font-weight: 700;
+}
+
+.section4__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: var(--color-brand-accent);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-btn);
+  line-height: var(--leading-btn);
+  padding-block: 1rem;
+  padding-inline: var(--spacing-xl);
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.section4__cta:hover {
+  filter: brightness(1.1);
+}
+
+.section4__cta:focus-visible {
+  outline: 2px solid var(--color-text-on-dark);
+  outline-offset: 2px;
+}
+
+.section4__cta-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
