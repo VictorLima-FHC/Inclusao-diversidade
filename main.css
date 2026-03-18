@@ -161,8 +161,18 @@ img {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(126, 39, 85, 0.8), transparent);
+background: linear-gradient(
+  to right,
+  rgba(126, 39, 85, 0.8) 0%,
+  rgba(126, 39, 85, 0.6) 10%,
+  transparent 60%
+);
+
 }
+
+ .section2__item-title br {
+    display: none;
+  }
 
 .hero__content {
   position: relative;
@@ -175,7 +185,7 @@ img {
 
 .hero__title {
   font-family: var(--font-heading);
-  font-size: var(--text-h1);
+  font-size: 40px;
   line-height: var(--leading-h1);
   color: var(--color-text-on-dark);
   max-width: 55rem;

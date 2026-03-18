@@ -1,6 +1,7 @@
 @media (min-width: 1024px) {
   .hero {
-    aspect-ratio: 1440 / 371;
+    aspect-ratio: 1440 / 391;
+
   }
 
   .hero__title-br { 
@@ -38,8 +39,8 @@
   }
 
   .section1__icon {
-    width: 9.5rem;
-    height: 9.5rem;
+    width: 7.5rem;
+    height: 7.5rem;
   }
 
   .section2__grid {
